@@ -1,0 +1,33 @@
+vector dalijamas i 2
+failo dydis	nuskaitymas	rusiavimas	isvedimas	
+1000	 20	0ms		1ms		6ms		
+10000	 20	8ms		14ms		45ms				
+100000	 20	88ms		201ms		500ms		
+1000000	 5	614ms		1899ms		3112ms		
+10000000 5	6583ms		38640ms		55583ms
+			
+deque dalijamas i 2
+failo dydis	nuskaitymas	rusiavimas	isvedimas
+1000	 20	0ms		1ms		6ms
+10000	 20	8ms		15ms		50ms
+100000	 20	97ms		199ms		497ms
+1000000	 5	651ms		1994ms		3318ms
+10000000 5	6797ms		38771ms		57069ms
+
+vector dalijamas i 1
+failo dydis	nuskaitymas	rusiavimas	isvedimas	
+1000	 20	0ms		1ms		6ms		
+10000	 20	8ms		12ms		44ms				
+100000	 20	86ms		200ms		325ms		
+1000000	 5	644ms		1801ms		3101ms		
+10000000 5	6583ms		24333ms		50201ms
+
+deque dalijamas i i
+failo dydis	nuskaitymas	rusiavimas	isvedimas
+1000	 20	0ms		0ms		8ms
+10000	 20	8ms		11ms		53ms
+100000	 20	61ms		133ms		308ms
+1000000	 5	651ms		1642ms		3106ms
+10000000 5	6797ms		24497ms		49310ms
+
+	
