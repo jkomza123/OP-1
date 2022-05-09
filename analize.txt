@@ -1,33 +1,19 @@
-vector dalijamas i 2
+vector dalijamas i 2 konteinerius
 failo dydis	nuskaitymas	rusiavimas	isvedimas	
-1000	 20	0ms		1ms		6ms		
-10000	 20	8ms		14ms		45ms				
-100000	 20	88ms		201ms		500ms		
-1000000	 5	614ms		1899ms		3112ms		
-10000000 5	6583ms		38640ms		55583ms
-			
-deque dalijamas i 2
-failo dydis	nuskaitymas	rusiavimas	isvedimas
-1000	 20	0ms		1ms		6ms
-10000	 20	8ms		15ms		50ms
-100000	 20	97ms		199ms		497ms
-1000000	 5	651ms		1994ms		3318ms
-10000000 5	6797ms		38771ms		57069ms
+100000	 20	0.086 s		0.2 s		0.325 s			
+10000000 5	6.583 s		24.333 s	50.201 s
 
-vector dalijamas i 1
+class O2
 failo dydis	nuskaitymas	rusiavimas	isvedimas	
-1000	 20	0ms		1ms		6ms		
-10000	 20	8ms		12ms		44ms				
-100000	 20	86ms		200ms		325ms		
-1000000	 5	644ms		1801ms		3101ms		
-10000000 5	6583ms		24333ms		50201ms
+100000	 20	0.1 s		0.051 s		0.388 s		
+10000000 5	6.125 s		15.43 s		32.111 s
 
-deque dalijamas i i
-failo dydis	nuskaitymas	rusiavimas	isvedimas
-1000	 20	0ms		0ms		8ms
-10000	 20	8ms		11ms		53ms
-100000	 20	61ms		133ms		308ms
-1000000	 5	651ms		1642ms		3106ms
-10000000 5	6797ms		24497ms		49310ms
+class O1
+failo dydis	nuskaitymas	rusiavimas	isvedimas	
+100000	 20	0.1 s		0.045 s		0.362 s		
+10000000 5	6.22 s		13.196 s	25.692 s
 
-	
+class Od
+failo dydis	nuskaitymas	rusiavimas	isvedimas	
+100000	 20	0.356 s		0.108 s		0.936 s		
+10000000 5	22.957 s	14.082 s	44.525 s
