@@ -38,15 +38,45 @@ private:
 	std::vector<double> paz;
 	double rezult = 0;
 	double med;
+	//pazymiu skaicius
 	double n = 0;
 
 	// interfeisas
 public:
 	
-	Studentas() : egz(0) { }  // default konstruktorius
+	Studentas() : egz(0), rezult(0), n(0), med(0), vardas(""), pavarde("") { }  // default konstruktorius
 	Studentas(std::istream& is);
 	inline std::string vardass() const { return vardas; }    // get'eriai, inline
 	inline std::string pavardee() const { return pavarde; }  // get'eriai, inline
+	Studentas(const Studentas& student) //copy constructor
+	{
+		vardas = student.vardas;
+		pavarde = student.pavarde;
+		rezult = student.rezult;
+		egz = student.egz;
+		n = student.n;
+		med = student.med;
+		paz = student.paz;
+	}
+
+	~Studentas() { paz.clear(); }//destructor
+
+	Studentas operator=(const Studentas& student) //assign operator
+	{
+		if (this == &student)
+			return *this;
+		vardas = student.vardas;
+		pavarde = student.pavarde;
+		rezult = student.rezult;
+		egz = student.egz;
+		n = student.n;
+		med = student.med;
+		paz = student.paz;
+		return *this;
+	}
+
+
+
 	double getmed()
 	{
 		return med;
