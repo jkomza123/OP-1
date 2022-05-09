@@ -1,4 +1,4 @@
-# v1.1
+# v1.2
 ### Apie programą.<br>
 
 Programa sukurta studentų vidurkiams skaičiuoti
