@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <cctype>
 #include <thread>
+#include <ostream>
 
 using std::cout;
 using std::cin;
@@ -45,9 +46,7 @@ private:
 public:
 	
 	Studentas() : egz(0), rezult(0), n(0), med(0), vardas(""), pavarde("") { }  // default konstruktorius
-	Studentas(std::istream& is);
-	inline std::string vardass() const { return vardas; }    // get'eriai, inline
-	inline std::string pavardee() const { return pavarde; }  // get'eriai, inline
+	
 	Studentas(const Studentas& student) //copy constructor
 	{
 		vardas = student.vardas;
@@ -75,8 +74,32 @@ public:
 		return *this;
 	}
 
+	friend std::ostream& operator<<(std::ostream& out, const Studentas& student) {
+		out << student.vardas <<" "<<student.pavarde<<" "<<student.med<<" "<<student.egz<<" "<<student.rezult<<" "<< student.n << "\n";
+		for (int i = 0; i < student.n; i++) {
+			out << student.paz[i] << " ";
+			out << "\n";
+		}
+		return out;
+	}
+	friend std::istream& operator>>(std::istream& in, Studentas& student) {
+		cout << "iveskite varda" << "\n";
+		in >> student.vardas;
+		cout << "iveskite pavarde" << "\n";
+		in >> student.pavarde;
+		cout << "kiek pazymiu tures studentas?" << "\n";
+		in >> student.n;
+		for(int i=0;i<student.n;i++){
+			in >> student.paz[i];
+		}
+		cout << "iveskite egzamino pazymi" << "\n";
+		in >> student.egz;
+		return in;
+	}
 
-
+	Studentas(std::istream& is);
+	inline std::string vardass() const { return vardas; }    // get'eriai, inline
+	inline std::string pavardee() const { return pavarde; }  // get'eriai, inline
 	double getmed()
 	{
 		return med;
