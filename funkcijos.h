@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <cctype>
 #include <thread>
+#include <ostream>
 
 using std::cout;
 using std::cin;
@@ -29,21 +30,98 @@ using std::vector;
 	int n = 0;
 };*/
 // Reikia includinti visas priklausomybes: <iostream>, <string>, <vector>, "mediana.h"
-class Studentas {
+class Zmogus {
+protected:
+	string vardas, pavarde;
+public:
+	inline string getvar() const { return vardas; }
+	inline string getpav() const { return pavarde; }
+	virtual void setvar(string v) = 0;
+	virtual void setpav(string p) = 0;
+	Zmogus(string vardas = " ", string pavarde = " "){}
+};
+class Studentas: public Zmogus {
 	// realizacija
 private:
-	std::string vardas;
-	std::string pavarde;
+	//std::string vardas;
+	//std::string pavarde;
 	double egz;
 	std::vector<double> paz;
 	double rezult = 0;
 	double med;
+	//pazymiu skaicius
 	double n = 0;
 
 	// interfeisas
 public:
 	
-	Studentas() : egz(0) { }  // default konstruktorius
+	Studentas() : egz(0), rezult(0), n(0), med(0)/*, vardas(""), pavarde("")*/ { }  // default konstruktorius
+	
+	Studentas(const Studentas& student) //copy constructor
+	{
+		vardas = student.vardas;
+		pavarde = student.pavarde;
+		rezult = student.rezult;
+		egz = student.egz;
+		n = student.n;
+		med = student.med;
+		paz = student.paz;
+	}
+
+	~Studentas() { paz.clear(); }//destructor
+
+	Studentas operator=(const Studentas& student) //assign operator
+	{
+		if (this == &student)
+			return *this;
+		vardas = student.vardas;
+		pavarde = student.pavarde;
+		rezult = student.rezult;
+		egz = student.egz;
+		n = student.n;
+		med = student.med;
+		paz = student.paz;
+		return *this;
+	}
+
+	friend std::ostream& operator<<(std::ostream& out, const Studentas& student) {
+		out << student.vardas <<" "<<student.pavarde<<" "<<student.med<<" "<<student.egz<<" "<<student.rezult<<" "<< student.n << "\n";
+		for (int i = 0; i < student.n; i++) {
+			out << student.paz[i] << " ";
+			out << "\n";
+		}
+		return out;
+	}
+	/*friend std::istream& operator>>(std::istream& in, Studentas& student) {
+		in >> student.vardas;
+		in >> student.pavarde;
+		std::string eil;
+		std::getline(in, eil);
+		std::vector<std::string> result;
+		size_t start;
+		size_t end = 0;
+
+		while ((start = eil.find_first_not_of(' ', end)) != std::string::npos)
+		{
+			end = eil.find(' ', start);
+			result.push_back(eil.substr(start, end - start));
+		}
+		student.setvar(result[0]);
+		student.setpav(result[1]);
+		int egzpaz = result.size()-1;
+		//std::stringstream value(result[egzpaz]);
+		int sk;
+		sk=stof(result[egzpaz]);
+		
+		//value >> sk;
+		student.setegz(stof(result[egzpaz]));
+		for (int i = 2; i < egzpaz - 2; i++) {
+			//std::stringstream value(result[i]);
+			in>>student.paz(stof(result[i]));
+		}
+		return in;
+	}*/
+
 	Studentas(std::istream& is);
 	inline std::string vardass() const { return vardas; }    // get'eriai, inline
 	inline std::string pavardee() const { return pavarde; }  // get'eriai, inline

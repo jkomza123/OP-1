@@ -3,7 +3,18 @@
 
 
 int main()
-{
+{   
+   /*
+    int test;
+    Studentas z;
+    Studentas x(z);
+    Studentas c = z;
+    cin >> test;
+    std::ifstream in ("stud.txt");
+    std::ofstream out("studi.txt");
+    out << z;
+    cin >> test;
+    */
     int p, b = 0, a;
     cout << "Ar norite sugeneruoti atsitiktiniu duomenu faila?" << std::endl;
     cout << "Spauskite 0 jei norite naudoti savo duomenis, 1 jei norite, kad butu sugeneruotas atsitiktiniu duomenu failas." << std::endl;

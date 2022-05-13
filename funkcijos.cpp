@@ -7,7 +7,7 @@ double sk;
 string v;
 std::vector<Studentas> mokiniai;
 std::vector<Studentas> vargsiukai;
-std::vector<Studentas> moksliukai;
+//std::vector<Studentas> moksliukai;
 //GENERAVIMAS
 
 void generavimas(int s, int pz) {
@@ -33,6 +33,8 @@ void generavimas(int s, int pz) {
 //VEDAMA IS FAILO
 
 void failotikrinimas() {
+    //ifstream fd()
+    //in >> Studentas;
     struct nera : public std::exception {
         const char* what() const throw () {
             return " Klaida";
@@ -125,8 +127,8 @@ void skaidymas(std::vector <std::string> splited,int b) {
         }
         mokiniai.push_back(mok);
     }
-    dalijimas(mokiniai, paz, vargsiukai, moksliukai);
-    isvestis(mokiniai, paz,vargsiukai,moksliukai);
+    dalijimas(mokiniai, paz, vargsiukai, mokiniai);
+    isvestis(mokiniai, paz,vargsiukai,mokiniai);
 }
 std::vector<std::string> split(std::string eil, char delimiter)
 {
